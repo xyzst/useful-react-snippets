@@ -16,7 +16,7 @@
    - In React.js, only contains one render() call (hereby called the 'root' component)
 2. MPA (Multi Page Application)
    - Multiple HTML pages, content rendered on server
-   - In React.js, one render call per 'widget' on page or pages (components are isolated from each other)
+   - In React.js, one render() call per 'widget' on page or pages (components are isolated from each other)
 
 ## Tips & Tricks
 
