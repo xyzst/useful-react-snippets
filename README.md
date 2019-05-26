@@ -107,6 +107,11 @@
       - Returns two objects: the initial state, and a function to update the state
       - CAVEAT: `useState()` does not replace values, but rather overwrites, need to make sure the state is consistent
         - Can get around this by using multiple `useState()` methods to update only portions of the state that needs to be updated
+  - Stateless vs Stateful components
+    - React team recommends using stateless components over stateful components
+    - Stateless components should act as slaves to stateful components
+      - Stateful components have the logic to modify and manage the state and update where necessary
+    - An application with MANY stateful components is considered an anti-pattern and is very difficult to manage and debug (possible difficult to test as well)
 
 ### Debugging
 
