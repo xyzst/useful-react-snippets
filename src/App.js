@@ -7,7 +7,8 @@ class App extends Component {
     persons: [
       { name: "Anakin", age: 8 },
       { name: "Sansa", age: 18 },
-      { name: "Joffrey", age: 18 }
+      { name: "Joffrey", age: 18 },
+      { name: "Arya", age: 16 }
     ]
   };
 
@@ -16,10 +17,16 @@ class App extends Component {
       <div className="App">
         <h1>Hello from React App!</h1>
         <button>~ Switch Name ~</button>
-        {/* {this.state.persons.map(x => (
-          <Person name={x.name} age={x.age} />
-        ))} */}
-        <Person
+        {this.state.persons.map(x =>
+          x.name === "Arya" ? (
+            <Person name={x.name} age={x.age}>
+              Hobbies: Getting revenge, killing enemies
+            </Person>
+          ) : (
+            <Person name={x.name} age={x.age} />
+          )
+        )}
+        {/* <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
         />
@@ -32,7 +39,7 @@ class App extends Component {
         <Person
           name={this.state.persons[2].name}
           age={this.state.persons[2].age}
-        />
+        /> */}
       </div>
     );
     // return React.createElement(
