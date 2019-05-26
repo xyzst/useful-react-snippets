@@ -80,6 +80,9 @@
     - Class: `this.props.children`
   - `children` is reserved keyword to access children properties
     - eg, `<Person ...some_props>CHILDREN PROPERTY HERE</Person>`
+- Using state in class components
+  - Special property called `state` in class components
+  - Upon any update of the `state` property, the component is re-rendered
 
 ### Debugging
 
