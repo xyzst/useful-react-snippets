@@ -83,6 +83,11 @@
 - Using state in class components
   - Special property called `state` in class components
   - Upon any update of the `state` property, the component is re-rendered
+- Adding event listener
+  - Use `onClick`
+    - Only pass method reference/object, do not include () since it will immediately invoke the function on page load or component render
+      - eg, ✅ `<SomeComponent onClick={this.state.someMethod} />`
+      - eg, ❌ `<SomeComponent onClick={this.state.someMethod()} />`
 
 ### Debugging
 

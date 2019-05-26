@@ -12,11 +12,16 @@ class App extends Component {
     ]
   };
 
+  switchNameHandler = event => {
+    event.preventDefault();
+    console.log(" switch name clicked!");
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Hello from React App!</h1>
-        <button>~ Switch Name ~</button>
+        <button onClick={this.switchNameHandler}>~ Switch Name ~</button>
         {this.state.persons.map(x =>
           x.name === "Arya" ? (
             <Person name={x.name} age={x.age}>
@@ -26,20 +31,6 @@ class App extends Component {
             <Person name={x.name} age={x.age} />
           )
         )}
-        {/* <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}
-        />
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-        >
-          My Hobbies: Kill Cersei
-        </Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}
-        /> */}
       </div>
     );
     // return React.createElement(
