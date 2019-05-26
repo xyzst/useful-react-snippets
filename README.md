@@ -88,6 +88,16 @@
     - Only pass method reference/object, do not include () since it will immediately invoke the function on page load or component render
       - eg, ✅ `<SomeComponent onClick={this.state.someMethod} />`
       - eg, ❌ `<SomeComponent onClick={this.state.someMethod()} />`
+  - Other supported events
+    - includes `onCopy`, `onCut`, `onPaste` ...
+    - https://reactjs.org/docs/events.html#supported-events
+    - Even includes composition, keyboard events
+      - `onCompositionEnd`, `onKeyDown` ...
+  - Managing state
+    - Use `this.setState({ ... })`
+    - DO NOT MUTATE STATE DIRECTLY
+      - eg `this.state.something = "state changed?"`
+      - produces warning
 
 ### Debugging
 

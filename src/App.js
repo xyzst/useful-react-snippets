@@ -14,7 +14,15 @@ class App extends Component {
 
   switchNameHandler = event => {
     event.preventDefault();
-    console.log(" switch name clicked!");
+    // this.state.persons[0].name = "holla"; // very bad to use, will produce warning. Wont update state or cause re-render
+    this.setState({
+      persons: [
+        { name: "Darren Rambaud", age: 26 },
+        { name: "Sansa Stark", age: 18 },
+        { name: "Joffrey Baratheon", age: 18 },
+        { name: "Arya Stark", age: 16 }
+      ]
+    });
   };
 
   render() {
@@ -23,7 +31,7 @@ class App extends Component {
         <h1>Hello from React App!</h1>
         <button onClick={this.switchNameHandler}>~ Switch Name ~</button>
         {this.state.persons.map(x =>
-          x.name === "Arya" ? (
+          x.name === "Arya Stark" || x.name === "Arya" ? (
             <Person name={x.name} age={x.age}>
               Hobbies: Getting revenge, killing enemies
             </Person>
