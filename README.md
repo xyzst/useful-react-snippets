@@ -66,6 +66,15 @@
     - "smart"
     - "stateful"
     - "container" component
+- Why use components at all?
+  - RE-USABILITY
+  - Composable
+  - Readability
+- Working with dynamic content
+  - Need to wrap js functions in `{}`
+    - eg, `{ Math.random() }`
+  - Functional components: Can pass data through `props`
+    - For class components: access through `this.props`
 
 ### Debugging
 
