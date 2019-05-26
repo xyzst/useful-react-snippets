@@ -98,6 +98,15 @@
     - DO NOT MUTATE STATE DIRECTLY
       - eg `this.state.something = "state changed?"`
       - produces warning
+    - In React 16.x and up: can now update state using hooks!
+      - \*\*Hooks work in functional components as well\*\*
+      - reference: https://reactjs.org/docs/hooks-overview.html
+  - Hooks (React 16.x+ only!)
+    - `useState`
+      - Can be used in functional components
+      - Returns two objects: the initial state, and a function to update the state
+      - CAVEAT: `useState()` does not replace values, but rather overwrites, need to make sure the state is consistent
+        - Can get around this by using multiple `useState()` methods to update only portions of the state that needs to be updated
 
 ### Debugging
 
