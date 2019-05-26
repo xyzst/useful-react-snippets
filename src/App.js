@@ -14,15 +14,15 @@ const App = props => {
 
   const [otherState, setOtherState] = useState("some other value");
 
-  const switchNameHandler = event => {
-    event.preventDefault();
+  const switchNameHandler = newName => {
     setPersonsState({
       persons: [
         { name: "Darren Rambaud", age: 26 },
         { name: "Sansa Stark", age: 18 },
         { name: "Joffrey Baratheon", age: 18 },
         { name: "Arya Stark", age: 16 },
-        { name: "Eddard Stark", age: 40 }
+        { name: "Eddard Stark", age: 40 },
+        { name: newName, age: 69 }
       ]
     });
   };
@@ -30,10 +30,16 @@ const App = props => {
   return (
     <div className="App">
       <h1>Hello from React App!</h1>
-      <button onClick={switchNameHandler}>~ Switch Name ~</button>
+      <button onClick={() => switchNameHandler("RandomNameHere")}>
+        ~ Switch Name ~
+      </button>
       {personsState.persons.map(x =>
         x.name === "Arya Stark" || x.name === "Arya" ? (
-          <Person name={x.name} age={x.age}>
+          <Person
+            name={x.name}
+            age={x.age}
+            click={switchNameHandler.bind(this, "...RandomValueHere")}
+          >
             Hobbies: Getting revenge, killing enemies
           </Person>
         ) : (

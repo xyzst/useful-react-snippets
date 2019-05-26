@@ -112,6 +112,13 @@
     - Stateless components should act as slaves to stateful components
       - Stateful components have the logic to modify and manage the state and update where necessary
     - An application with MANY stateful components is considered an anti-pattern and is very difficult to manage and debug (possible difficult to test as well)
+  - Method references b/w components
+    - Can pass method references to child components
+      - Create property, pass method reference
+      - eg, `<Person click={someFunctionInParent} />`; in child component --> `<p onClick={props.click} ...</p>`
+    - Two ways to pass method references w/ args
+      - Through `{ () => someFunction("argumentHere") }`; -- May result in performance loss due to how anonymous functions work in js
+      - `{ someFunction.bind(this, "argumentHere") }` -- May be more readable, efficient?
 
 ### Debugging
 
