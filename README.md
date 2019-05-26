@@ -44,6 +44,14 @@
       - need webserver to simulate http protocol (shouldn't use file:// protocol)
     - zero config react project?
       - likely create-react-app
+- Understanding JSX
+  - Using render(), must return one root DOM element
+    - Can wrap multiple components in a single parent component
+    - Behavior changes in React 16.x
+  - React.createElement('HTML element (eg, div)', null, children_components)
+    - To add child components, need to nest React.createElement()
+  - JSX !== HTML
+    - eg, className (jsx) vs class (html)
 
 ### Debugging
 
