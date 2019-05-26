@@ -5,14 +5,27 @@ import Person from "./components/Person";
 const App = props => {
   const [personsState, setPersonsState] = useState({
     persons: [
+      { name: "Darren", age: 26 },
       { name: "Anakin", age: 8 },
       { name: "Sansa", age: 18 },
       { name: "Joffrey", age: 18 },
-      { name: "Arya", age: 16 }
+      { name: "Arya", age: 16 },
+      { name: "Eddard", age: 40 }
     ]
   });
 
-  const [otherState, setOtherState] = useState("some other value");
+  const nameChangeHandler = event => {
+    setPersonsState({
+      persons: [
+        { name: "Darren", age: 26 },
+        { name: "Anakin", age: 8 },
+        { name: "Sansa", age: 18 },
+        { name: "Joffrey", age: 18 },
+        { name: "Arya", age: 16 },
+        { name: event.target.value, age: 40 }
+      ]
+    });
+  };
 
   const switchNameHandler = newName => {
     setPersonsState({
@@ -21,8 +34,7 @@ const App = props => {
         { name: "Sansa Stark", age: 18 },
         { name: "Joffrey Baratheon", age: 18 },
         { name: "Arya Stark", age: 16 },
-        { name: "Eddard Stark", age: 40 },
-        { name: newName, age: 69 }
+        { name: newName, age: 40 }
       ]
     });
   };
@@ -39,11 +51,17 @@ const App = props => {
             name={x.name}
             age={x.age}
             click={switchNameHandler.bind(this, "...RandomValueHere")}
+            changed={nameChangeHandler}
           >
             Hobbies: Getting revenge, killing enemies
           </Person>
         ) : (
-          <Person name={x.name} age={x.age} />
+          <Person
+            name={x.name}
+            age={x.age}
+            click={switchNameHandler.bind(this, "x")}
+            changed={nameChangeHandler}
+          />
         )
       )}
     </div>

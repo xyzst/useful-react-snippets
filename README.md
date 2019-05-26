@@ -119,6 +119,10 @@
     - Two ways to pass method references w/ args
       - Through `{ () => someFunction("argumentHere") }`; -- May result in performance loss due to how anonymous functions work in js
       - `{ someFunction.bind(this, "argumentHere") }` -- May be more readable, efficient?
+  - Two way binding
+    - Given an input with `value` set
+      - Must include
+        1. Provide `onChange` Handler
 
 ### Debugging
 
