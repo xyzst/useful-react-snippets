@@ -123,6 +123,13 @@
     - Given an input with `value` set
       - Must include
         1. Provide `onChange` Handler
+  - Styling
+    - Two methods to styling
+      1. Create global \*.css file (Injection handled by Webpack!)
+      - Must import into \*.js file which the style will be used
+      - eg, `import './someStyling.css'` in `Person.js`
+      2. Inline styling
+      -
 
 ### Debugging
 
