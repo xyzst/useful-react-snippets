@@ -25,6 +25,26 @@
 
 ### Basics
 
+- Build workflow (local)
+  - why?
+    - Alternate to using codepen.io or any
+    - best for optimizing code (eg, webpack, babel)
+    - using latest js features (ES6+)
+    - productivity!!!
+  - how?
+    - via dependency management tool (npm, yarn)
+    - bundler (webpack!)
+      - bundle files
+      - apply build steps
+    - compiler (ES6+)
+      - babel
+      - presets
+      - webpack config
+    - development server (local)
+      - need webserver to simulate http protocol (shouldn't use file:// protocol)
+    - zero config react project?
+      - likely create-react-app
+
 ### Debugging
 
 ### Styling Components
