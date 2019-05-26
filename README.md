@@ -44,6 +44,8 @@
       - need webserver to simulate http protocol (shouldn't use file:// protocol)
     - zero config react project?
       - likely create-react-app
+- Understanding an app written using reactjs
+  - Think of it as a tree of components
 - Understanding JSX
   - Using render(), must return one root DOM element
     - Can wrap multiple components in a single parent component
@@ -52,6 +54,18 @@
     - To add child components, need to nest React.createElement()
   - JSX !== HTML
     - eg, className (jsx) vs class (html)
+- Standards when naming components
+  - Should begin with capital letters (eg, ❌ <person> ✅ <Person>)
+- Benefits of functional components vs class components?
+  - Functional
+    - pure;
+    - presentational;
+    - "dumb";
+    - "stateless"
+  - Class
+    - "smart"
+    - "stateful"
+    - "container" component
 
 ### Debugging
 
