@@ -126,10 +126,13 @@
   - Styling
     - Two methods to styling
       1. Create global \*.css file (Injection handled by Webpack!)
-      - Must import into \*.js file which the style will be used
-      - eg, `import './someStyling.css'` in `Person.js`
+         - Must import into \*.js file which the style will be used
+         - eg, `import './someStyling.css'` in `Person.js`
       2. Inline styling
-      -
+         - Use `style={someStyle}` on component
+         - Write JS object with necessary styling
+         - !!! Styling scoped to component !!!
+         - CAVEAT -- limitations exist, cannot leverage full power of CSS or other CSS pre-processor
 
 ### Debugging
 

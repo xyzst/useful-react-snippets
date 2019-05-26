@@ -39,10 +39,18 @@ const App = props => {
     });
   };
 
+  const style = {
+    backgroundColor: "white",
+    font: "inherit",
+    border: "1px solid blue",
+    padding: "8px",
+    cursor: "pointer"
+  };
+
   return (
     <div className="App">
       <h1>Hello from React App!</h1>
-      <button onClick={() => switchNameHandler("RandomNameHere")}>
+      <button style={style} onClick={() => switchNameHandler("RandomNameHere")}>
         ~ Switch Name ~
       </button>
       {personsState.persons.map(x =>
