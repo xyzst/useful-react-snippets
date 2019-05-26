@@ -75,6 +75,11 @@
     - eg, `{ Math.random() }`
   - Functional components: Can pass data through `props`
     - For class components: access through `this.props`
+- Children Property
+  - Accessed through `props.children` (functional)
+    - Class: `this.props.children`
+  - `children` is reserved keyword to access children properties
+    - eg, `<Person ...some_props>CHILDREN PROPERTY HERE</Person>`
 
 ### Debugging
 
