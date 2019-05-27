@@ -74,9 +74,25 @@ const App = props => {
     return persons;
   };
 
+  let classes = ["red", "bold"].join(" "); // refers to class names in App.css; returns `red bold`
+
+  const dynamicClasses = () => {
+    let classes = [];
+
+    if (personsState.persons.length <= 2) {
+      classes.push("red"); // classes = ['red']
+    }
+
+    if (personsState.persons.length <= 1) {
+      classes.push("bold"); // classes = ['red', 'bold']
+    }
+
+    return classes.join(" ");
+  };
   return (
     <div className="App">
       <h1>Hello from React App!</h1>
+      <p className={dynamicClasses()}>created by Darren Rambaud</p>
       <button style={style} onClick={togglePersons}>
         ~ Hide/Show Person(s) ~
       </button>

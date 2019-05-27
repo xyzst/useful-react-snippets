@@ -136,8 +136,10 @@
          - !!! Styling scoped to component !!!
          - CAVEAT -- limitations exist, cannot leverage full power of CSS or other CSS pre-processor
          - cannot leverage pseudo selectors (hover)
-    - Dynamic styling
+    - Dynamic inline styling
       - Can add dynamic styling by defining inline style, then change different properties. On re-render of component (or any state changes), style of component(s) will be updated
+    - Dynamic class styling
+      - Same as inline styling, need to define classes in _.css file first then reference them in the _.js file
 
 ### Debugging
 
