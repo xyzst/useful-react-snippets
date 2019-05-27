@@ -125,32 +125,37 @@
     - Given an input with `value` set
       - Must include
         1. Provide `onChange` Handler
-  - Styling
-    - Two methods to styling
-      1. Create global \*.css file (Injection handled by Webpack!)
-         - Must import into \*.js file which the style will be used
-         - eg, `import './someStyling.css'` in `Person.js`
-      2. Inline styling
-         - Use `style={someStyle}` on component
-         - Write JS object with necessary styling
-         - !!! Styling scoped to component !!!
-         - CAVEAT -- limitations exist, cannot leverage full power of CSS or other CSS pre-processor
-         - cannot leverage pseudo selectors (hover)
-    - Dynamic inline styling
-      - Can add dynamic styling by defining inline style, then change different properties. On re-render of component (or any state changes), style of component(s) will be updated
-    - Dynamic class styling
-      - Same as inline styling, need to define classes in _.css file first then reference them in the _.js file
-    - Can overcome limits of inline styling by using an optional third party package
-      - Can use psuedo selectors, media queries ...
-      - Radium (as of today (5/27/19), does not work with React Hooks so use Styled Components)
-      - Styled components
-    - Scoped CSS files (using webpack & css modules)
-      - if using create react app, must eject first!
-      - modify webpack configuration files (css modules)
 
 ### Debugging
 
+- just use chrome/safari dev tools
+- breakpoints are your friend as well as sourceMaps (thanks webpack!)
+- react developer tools (extension in chrome)
+
 ### Styling Components
+
+- Styling
+  - Two methods to styling
+    1. Create global \*.css file (Injection handled by Webpack!)
+       - Must import into \*.js file which the style will be used
+       - eg, `import './someStyling.css'` in `Person.js`
+    2. Inline styling
+       - Use `style={someStyle}` on component
+       - Write JS object with necessary styling
+       - !!! Styling scoped to component !!!
+       - CAVEAT -- limitations exist, cannot leverage full power of CSS or other CSS pre-processor
+       - cannot leverage pseudo selectors (hover)
+  - Dynamic inline styling
+    - Can add dynamic styling by defining inline style, then change different properties. On re-render of component (or any state changes), style of component(s) will be updated
+  - Dynamic class styling
+    - Same as inline styling, need to define classes in _.css file first then reference them in the _.js file
+  - Can overcome limits of inline styling by using an optional third party package
+    - Can use psuedo selectors, media queries ...
+    - Radium (as of today (5/27/19), does not work with React Hooks so use Styled Components)
+    - Styled components
+  - Scoped CSS files (using webpack & css modules)
+    - if using create react app, must eject first!
+    - modify webpack configuration files (css modules)
 
 ### More About Components (Deep Dive)
 
