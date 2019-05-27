@@ -46,20 +46,17 @@ const App = props => {
   };
 
   const style = {
-    backgroundColor: "white",
+    backgroundColor: "green",
     font: "inherit",
     border: "1px solid blue",
     padding: "8px",
     cursor: "pointer"
   };
 
-  return (
-    <div className="App">
-      <h1>Hello from React App!</h1>
-      <button style={style} onClick={togglePersons}>
-        ~ Hide/Show Person(s) ~
-      </button>
-      {toggleState.showPersons ? (
+  const showPersons = () => {
+    let persons = null;
+    if (toggleState.showPersons) {
+      persons = (
         <div>
           {personsState.persons.map((x, index) => (
             <Person
@@ -71,7 +68,19 @@ const App = props => {
             />
           ))}
         </div>
-      ) : null}
+      );
+      style.backgroundColor = "red";
+    }
+    return persons;
+  };
+
+  return (
+    <div className="App">
+      <h1>Hello from React App!</h1>
+      <button style={style} onClick={togglePersons}>
+        ~ Hide/Show Person(s) ~
+      </button>
+      <div>{showPersons()}</div>
     </div>
   );
   // return React.createElement(
