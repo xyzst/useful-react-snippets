@@ -52,6 +52,7 @@ const App = () => {
     border: 1px solid blue;
     padding: 8px;
     cursor: pointer;
+    color: white;
     :hover {
       background: ${toggleState.showPersons ? "lightgreen" : "salmon"};
       color: black;
