@@ -66,14 +66,13 @@ const App = () => {
       persons = (
         <div>
           {personsState.persons.map((x, index) => (
-            <Boundary key={x.id}>
-              <Person
-                name={x.name}
-                age={x.age}
-                click={() => deletePersonHandler(index)}
-                changed={event => nameChangeHandler(event, x.id)}
-              />
-            </Boundary>
+            <Person
+              key={x.id}
+              name={x.name}
+              age={x.age}
+              click={() => deletePersonHandler(index)}
+              changed={event => nameChangeHandler(event, x.id)}
+            />
           ))}
         </div>
       );
