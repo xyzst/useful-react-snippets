@@ -15,6 +15,12 @@ const Person = props => {
     }
   `;
 
+  const r = Math.random();
+
+  if (r < 0.7) {
+    throw new Error("Something went wrong!");
+  }
+
   return (
     <PersonDiv>
       <p onClick={props.click}>

@@ -131,6 +131,9 @@
 - just use chrome/safari dev tools
 - breakpoints are your friend as well as sourceMaps (thanks webpack!)
 - react developer tools (extension in chrome)
+- New in React 16.x (Error Boundaries)
+  - Similar to try/catch blocks, should only used with problematic code
+  - do not wrap entire application in an error boundary
 
 ### Styling Components
 

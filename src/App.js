@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./App.css";
 import Person from "./components/Person";
 import styled from "styled-components";
+import Boundary from "./ErrorBoundary/Boundary";
 
 const App = () => {
   const [personsState, setPersonsState] = useState({
@@ -65,13 +66,14 @@ const App = () => {
       persons = (
         <div>
           {personsState.persons.map((x, index) => (
-            <Person
-              key={x.id}
-              name={x.name}
-              age={x.age}
-              click={() => deletePersonHandler(index)}
-              changed={event => nameChangeHandler(event, x.id)}
-            />
+            <Boundary key={x.id}>
+              <Person
+                name={x.name}
+                age={x.age}
+                click={() => deletePersonHandler(index)}
+                changed={event => nameChangeHandler(event, x.id)}
+              />
+            </Boundary>
           ))}
         </div>
       );
