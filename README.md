@@ -22,6 +22,8 @@
 
 - Usually need to import 'react' and 'react-dom'
 - Babel used to transform react.js code (jsx) --> js
+- Use the spread operator `...` to make copies of arrays in order to avoid mutating original array (Make application state as predictable as possible)
+  - eg, `[...stateHook.someArray]` returns copy of --> (given: `[stateHook, setStateHook] = useState({ someArray: [{id: 1, name: "a"}, {id: 2, name: "b"}, ...] })`)
 
 ### Basics
 

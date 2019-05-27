@@ -5,12 +5,12 @@ import Person from "./components/Person";
 const App = props => {
   const [personsState, setPersonsState] = useState({
     persons: [
-      { name: "Darren", age: 26 },
-      { name: "Anakin", age: 8 },
-      { name: "Sansa", age: 18 },
-      { name: "Joffrey", age: 18 },
-      { name: "Arya", age: 16 },
-      { name: "Eddard", age: 40 }
+      { id: "a", name: "Darren", age: 26 },
+      { id: "b", name: "Anakin", age: 8 },
+      { id: "c", name: "Sansa", age: 18 },
+      { id: "d", name: "Joffrey", age: 18 },
+      { id: "e", name: "Arya", age: 16 },
+      { id: "f", name: "Eddard", age: 40 }
     ]
   });
 
@@ -18,29 +18,27 @@ const App = props => {
     showPersons: false
   });
 
-  const nameChangeHandler = event => {
-    setPersonsState({
-      persons: [
-        { name: "Darren", age: 26 },
-        { name: "Anakin", age: 8 },
-        { name: "Sansa", age: 18 },
-        { name: "Joffrey", age: 18 },
-        { name: "Arya", age: 16 },
-        { name: event.target.value, age: 40 }
-      ]
+  const nameChangeHandler = (event, id) => {
+    // given index (id), find matching id in personsState.persons array
+    const personIndex = personsState.persons.findIndex(p => {
+      return p.id === id;
     });
+
+    // make a copy of the person associated with id using spread operator
+    const person = { ...personsState.persons[personIndex] };
+    person.name = event.target.value;
+
+    // make a copy of personsState.persons using spread operator
+    // and update the object at the specified personIndex
+    const persons = [...personsState.persons];
+    persons[personIndex] = person;
+    setPersonsState({ persons });
   };
 
-  const switchNameHandler = newName => {
-    setPersonsState({
-      persons: [
-        { name: "Darren Rambaud", age: 26 },
-        { name: "Sansa Stark", age: 18 },
-        { name: "Joffrey Baratheon", age: 18 },
-        { name: "Arya Stark", age: 16 },
-        { name: newName, age: 40 }
-      ]
-    });
+  const deletePersonHandler = personIndex => {
+    const persons = [...personsState.persons];
+    persons.splice(personIndex, 1);
+    setPersonsState({ persons });
   };
 
   const togglePersons = () => {
@@ -63,25 +61,15 @@ const App = props => {
       </button>
       {toggleState.showPersons ? (
         <div>
-          {personsState.persons.map(x =>
-            x.name === "Arya Stark" || x.name === "Arya" ? (
-              <Person
-                name={x.name}
-                age={x.age}
-                click={switchNameHandler.bind(this, "...RandomValueHere")}
-                changed={nameChangeHandler}
-              >
-                Hobbies: Getting revenge, killing enemies
-              </Person>
-            ) : (
-              <Person
-                name={x.name}
-                age={x.age}
-                click={switchNameHandler.bind(this, "x")}
-                changed={nameChangeHandler}
-              />
-            )
-          )}
+          {personsState.persons.map((x, index) => (
+            <Person
+              key={x.id}
+              name={x.name}
+              age={x.age}
+              click={() => deletePersonHandler(index)}
+              changed={event => nameChangeHandler(event, x.id)}
+            />
+          ))}
         </div>
       ) : null}
     </div>
