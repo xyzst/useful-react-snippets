@@ -14,6 +14,10 @@ const App = props => {
     ]
   });
 
+  const [toggleState, setToggleState] = useState({
+    showPersons: false
+  });
+
   const nameChangeHandler = event => {
     setPersonsState({
       persons: [
@@ -39,6 +43,10 @@ const App = props => {
     });
   };
 
+  const togglePersons = () => {
+    setToggleState({ showPersons: !toggleState.showPersons });
+  };
+
   const style = {
     backgroundColor: "white",
     font: "inherit",
@@ -50,28 +58,32 @@ const App = props => {
   return (
     <div className="App">
       <h1>Hello from React App!</h1>
-      <button style={style} onClick={() => switchNameHandler("RandomNameHere")}>
-        ~ Switch Name ~
+      <button style={style} onClick={togglePersons}>
+        ~ Hide/Show Person(s) ~
       </button>
-      {personsState.persons.map(x =>
-        x.name === "Arya Stark" || x.name === "Arya" ? (
-          <Person
-            name={x.name}
-            age={x.age}
-            click={switchNameHandler.bind(this, "...RandomValueHere")}
-            changed={nameChangeHandler}
-          >
-            Hobbies: Getting revenge, killing enemies
-          </Person>
-        ) : (
-          <Person
-            name={x.name}
-            age={x.age}
-            click={switchNameHandler.bind(this, "x")}
-            changed={nameChangeHandler}
-          />
-        )
-      )}
+      {toggleState.showPersons ? (
+        <div>
+          {personsState.persons.map(x =>
+            x.name === "Arya Stark" || x.name === "Arya" ? (
+              <Person
+                name={x.name}
+                age={x.age}
+                click={switchNameHandler.bind(this, "...RandomValueHere")}
+                changed={nameChangeHandler}
+              >
+                Hobbies: Getting revenge, killing enemies
+              </Person>
+            ) : (
+              <Person
+                name={x.name}
+                age={x.age}
+                click={switchNameHandler.bind(this, "x")}
+                changed={nameChangeHandler}
+              />
+            )
+          )}
+        </div>
+      ) : null}
     </div>
   );
   // return React.createElement(
