@@ -155,5 +155,3 @@
 ### Deployment
 
 ### Miscellaneous
-
-- hello_world
