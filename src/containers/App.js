@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styles from "./App.css";
-import Person from "./components/Person";
-import styled from "styled-components";
-import Boundary from "./ErrorBoundary/Boundary";
+import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 const App = () => {
   const [personsState, setPersonsState] = useState({
@@ -47,59 +46,26 @@ const App = () => {
     setToggleState({ showPersons: !toggleState.showPersons });
   };
 
-  const Button = styled.button`
-    background: ${toggleState.showPersons ? "green" : "red"};
-    font: inherit;
-    border: 1px solid blue;
-    padding: 8px;
-    cursor: pointer;
-    color: white;
-    :hover {
-      background: ${toggleState.showPersons ? "lightgreen" : "salmon"};
-      color: black;
-    }
-  `;
-
   const showPersons = () => {
-    let persons = null;
-    if (toggleState.showPersons) {
-      persons = (
-        <div>
-          {personsState.persons.map((x, index) => (
-            <Person
-              key={x.id}
-              name={x.name}
-              age={x.age}
-              click={() => deletePersonHandler(index)}
-              changed={event => nameChangeHandler(event, x.id)}
-            />
-          ))}
-        </div>
-      );
-    }
-    return persons;
-  };
-
-  const dynamicClasses = () => {
-    let classes = [];
-
-    if (personsState.persons.length <= 2) {
-      classes.push(styles.red); // classes = ['red']
-    }
-
-    if (personsState.persons.length <= 1) {
-      classes.push(styles.bold); // classes = ['red', 'bold']
-    }
-
-    return classes.join(" ");
+    return toggleState.showPersons ? (
+      <div>
+        <Persons
+          persons={personsState.persons}
+          clicked={deletePersonHandler}
+          changed={nameChangeHandler}
+        />
+      </div>
+    ) : null;
   };
 
   return (
     <div className={styles.App}>
-      <h1>Hello from React App!</h1>
-      <p className={dynamicClasses()}>created by Darren Rambaud</p>
-      <Button onClick={togglePersons}>~ Hide/Show Person(s) ~</Button>
-      <div>{showPersons()}</div>
+      <Cockpit
+        persons={personsState.persons}
+        toggled={toggleState}
+        toggle={togglePersons}
+      />
+      {showPersons()}
     </div>
   );
   // return React.createElement(

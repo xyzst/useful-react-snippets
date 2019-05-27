@@ -162,6 +162,14 @@
 
 ### More About Components (Deep Dive)
 
+- Project structure
+  - Should create components where necessary
+    - Person components encapsulated in a Persons component
+  - /src/assets directory
+    - contains all images
+  - containers directory
+    - App.js/App.css
+
 ### HTTP Requests
 
 ### Routing
