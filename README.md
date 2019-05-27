@@ -140,6 +140,10 @@
       - Can add dynamic styling by defining inline style, then change different properties. On re-render of component (or any state changes), style of component(s) will be updated
     - Dynamic class styling
       - Same as inline styling, need to define classes in _.css file first then reference them in the _.js file
+    - Can overcome limits of inline styling by using an optional third party package
+      - Can use psuedo selectors, media queries ...
+      - Radium (as of today (5/27/19), does not work with React Hooks so use Styled Components)
+      - Styled components
 
 ### Debugging
 

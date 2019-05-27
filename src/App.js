@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 import Person from "./components/Person";
+import styled from "styled-components";
 
-const App = props => {
+const App = () => {
   const [personsState, setPersonsState] = useState({
     persons: [
       { id: "a", name: "Darren", age: 26 },
@@ -45,13 +46,17 @@ const App = props => {
     setToggleState({ showPersons: !toggleState.showPersons });
   };
 
-  const style = {
-    backgroundColor: "green",
-    font: "inherit",
-    border: "1px solid blue",
-    padding: "8px",
-    cursor: "pointer"
-  };
+  const Button = styled.button`
+    background: ${toggleState.showPersons ? "green" : "red"};
+    font: inherit;
+    border: 1px solid blue;
+    padding: 8px;
+    cursor: pointer;
+    :hover {
+      background: ${toggleState.showPersons ? "lightgreen" : "salmon"};
+      color: black;
+    }
+  `;
 
   const showPersons = () => {
     let persons = null;
@@ -69,12 +74,9 @@ const App = props => {
           ))}
         </div>
       );
-      style.backgroundColor = "red";
     }
     return persons;
   };
-
-  let classes = ["red", "bold"].join(" "); // refers to class names in App.css; returns `red bold`
 
   const dynamicClasses = () => {
     let classes = [];
@@ -89,13 +91,12 @@ const App = props => {
 
     return classes.join(" ");
   };
+
   return (
     <div className="App">
       <h1>Hello from React App!</h1>
       <p className={dynamicClasses()}>created by Darren Rambaud</p>
-      <button style={style} onClick={togglePersons}>
-        ~ Hide/Show Person(s) ~
-      </button>
+      <Button onClick={togglePersons}>~ Hide/Show Person(s) ~</Button>
       <div>{showPersons()}</div>
     </div>
   );
