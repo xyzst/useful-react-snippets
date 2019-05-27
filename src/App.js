@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import styles from "./App.css";
 import Person from "./components/Person";
 import styled from "styled-components";
 
@@ -82,18 +82,18 @@ const App = () => {
     let classes = [];
 
     if (personsState.persons.length <= 2) {
-      classes.push("red"); // classes = ['red']
+      classes.push(styles.red); // classes = ['red']
     }
 
     if (personsState.persons.length <= 1) {
-      classes.push("bold"); // classes = ['red', 'bold']
+      classes.push(styles.bold); // classes = ['red', 'bold']
     }
 
     return classes.join(" ");
   };
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       <h1>Hello from React App!</h1>
       <p className={dynamicClasses()}>created by Darren Rambaud</p>
       <Button onClick={togglePersons}>~ Hide/Show Person(s) ~</Button>

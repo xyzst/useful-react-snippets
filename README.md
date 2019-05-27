@@ -144,6 +144,9 @@
       - Can use psuedo selectors, media queries ...
       - Radium (as of today (5/27/19), does not work with React Hooks so use Styled Components)
       - Styled components
+    - Scoped CSS files (using webpack & css modules)
+      - if using create react app, must eject first!
+      - modify webpack configuration files (css modules)
 
 ### Debugging
 
