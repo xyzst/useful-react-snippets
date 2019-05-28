@@ -4,6 +4,7 @@ import "./Person.css";
 
 class Person extends Component {
   render() {
+    console.log(`[Person.js] rendering ...`);
     return (
       <PersonDiv>
         <p onClick={this.props.click}>

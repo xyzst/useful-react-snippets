@@ -2,7 +2,33 @@ import React, { Component } from "react";
 import Person from "./Person/Person";
 
 class Persons extends Component {
+  static getDerivedStateFromProps(props, state) {
+    console.log(`[Persons.js] getDerivedStateFromProps ...`);
+    return state;
+  }
+
+  //   componentWillReceiveProps(props) { // Removed/unsupposed in newer React versions!
+  //     console.log(`[Persons.js] componentWillReceiveProps ...`);
+  //     console.log(props);
+  //   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(`[Persons.js] shouldComponentUpdate ...`);
+    return true; // Will update this later
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log(`[Persons.js] getSnapshotBeforeUpdate ...`);
+    return { message: "Snapshot" };
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log(`[Persons.js] componentDidUpdate ...`);
+    console.log(prevProps, prevState, snapshot);
+  }
+
   render() {
+    console.log(`[Persons.js] rendering ...`);
     return this.props.persons.map((x, index) => (
       <Person
         key={x.id}
