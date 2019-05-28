@@ -179,6 +179,50 @@
     - access to state (useState() hook)
       - props.XY
     - no access to lifecycle hooks (???, changed in react 16.x with hooks? such as useEffect() ??? -- need to explore)
+- Component Lifecycle
+  - DOES NOT EQUAL REACT HOOKS IN REACT 16.x
+  - Creation -- usually begins with ...
+    - `constructor(props)`
+      - should not cause any side effects (eg, analytics, http requests)
+      - sets up initial state (DO NOT USE setState() hook)
+    - Then ...
+      - `getDerivedStateFromProps(props, state)`
+        - State is synchronized
+        - DO NOT CAUSE SIFE EFFECTS HERE!
+        - Has to include `static` keyword
+      - Then ...
+        - `render()`
+          - Prepares and structures JSX code
+          - do not introduce any blocking components
+        - Then ...
+          - Render child components
+            - Once render is finished ...
+              - `componentDidMount()` executes (possibly some other lifecycle methods/hooks)
+                - CAN CAUSE SIDEFFECTS HERE
+                - do not update state here, can cause cyclic rendering and other performance issues
+  - Update -- usually begins with ...
+    - `getDerivedStateFromProps(props, state)`
+      - Updating state from outside changes
+      - Very rarely needed to use this, state can be managed elsewhere (useState() hook?)
+        - Then ...
+          - `shouldComponentUpdate(nextProps, nextState)`
+            - Allow cancel of updating process
+            - Can optimize performance here
+            - Very easy to break component tree
+            - DO NOT CAUSE SIDE EFFECTS
+              - Then ...
+                - `render()`
+                  - Prepare and structure jsx code
+                  - Upate child component props
+                    - Then ...
+                      - `getSnapshotBeforeUpdate(prevProps, prevState)`
+                        - returns snapshot object to freely configure
+                        - used for last minute DOM operations
+                        - controlling focus, scrolling position, cursor location?
+                          - Then ...
+                            - `componentDidUpdate()`
+                              - Can cause sideeffects here [with http, analytics]
+                              - Avoid infinite loops (like updating state)
 
 ### HTTP Requests
 
