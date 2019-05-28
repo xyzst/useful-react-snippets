@@ -170,6 +170,15 @@
   - containers directory
     - App.js/App.css
     - files/components here manage state
+- class vs functional components
+  - class:
+    - access to state
+      - via this.state.XY & this.props.XY
+    - access to lifecycle hooks
+  - functional:
+    - access to state (useState() hook)
+      - props.XY
+    - no access to lifecycle hooks (???, changed in react 16.x with hooks? such as useEffect() ??? -- need to explore)
 
 ### HTTP Requests
 

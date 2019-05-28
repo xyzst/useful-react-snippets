@@ -4,14 +4,14 @@ import styles from "./Cockpit.css";
 
 const Cockpit = props => {
   const Button = styled.button`
-    background: ${props.toggled.showPersons ? "green" : "red"};
+    background: ${props.toggled.showPersons ? "red" : "green"};
     font: inherit;
     border: 1px solid blue;
     padding: 8px;
     cursor: pointer;
     color: white;
     :hover {
-      background: ${props.toggled.showPersons ? "lightgreen" : "salmon"};
+      background: ${props.toggled.showPersons ? "salmon" : "lightgreen"};
       color: black;
     }
   `;
@@ -31,7 +31,7 @@ const Cockpit = props => {
 
   return (
     <div>
-      <h1>Hello from React App!</h1>
+      <h1>{props.title}</h1>
       <p className={dynamicClasses()}>created by Darren Rambaud</p>
       <Button onClick={props.toggle}>~ Hide/Show Person(s) ~</Button>
     </div>
