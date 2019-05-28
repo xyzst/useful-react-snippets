@@ -223,6 +223,15 @@
                             - `componentDidUpdate()`
                               - Can cause sideeffects here [with http, analytics]
                               - Avoid infinite loops (like updating state)
+    - useEffect() hook
+      - Potentially replaces componenetDidUpdate and componenetWillUpdate
+      - Tricky to use since it combines both of the aforementioned lifecycle hooks
+      - Can control by passing in secong argument to `useEffect(func, [])`
+        - array contains properties to watch for changes
+        - will run by default for 1 time, but subsequent renders (without changes to variables defined in []) will not execute useEffect!
+    - Clean up work methods
+      - Can use `componenetWillUnmount()`
+      - In useEffect(), in the first argument you can return a function which will run BEFORE the main useEffect but AFTER the first render cycle
 
 ### HTTP Requests
 

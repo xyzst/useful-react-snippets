@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import styles from "./Cockpit.css";
 
@@ -15,6 +15,17 @@ const Cockpit = props => {
       color: black;
     }
   `;
+
+  useEffect(() => {
+    console.log(`[Cockpit.js] useEffect ...`);
+    const timer = setTimeout(() => {
+      alert("Saved data to cloud");
+    }, 1000);
+    return () => {
+      console.log(`[Cockpit.js] cleanup ...`);
+      clearTimeout(timer);
+    };
+  }, [props.persons]);
 
   const dynamicClasses = () => {
     let classes = [];
