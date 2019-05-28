@@ -25,7 +25,7 @@ const Cockpit = props => {
     if (props.persons.length <= 1) {
       classes.push(styles.bold); // classes = ['red', 'bold']
     }
-    console.log(classes, props.persons.length, props);
+
     return classes.join(" ");
   };
 

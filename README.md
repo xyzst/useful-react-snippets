@@ -169,6 +169,7 @@
     - contains all images
   - containers directory
     - App.js/App.css
+    - files/components here manage state
 
 ### HTTP Requests
 
