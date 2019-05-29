@@ -238,6 +238,8 @@
         - Chrome Tools > dot menu > More tools > Rendering > Paint flashing
       - To optimize function components, wrap in `React.memo(...)` when exporting
         - only re-renders these components if the props have changed
+      - If required to check ALL props to determine if re-render is needed ...
+        - In class components, could extend a `PureComponent`, do not implement `shouldComponentUpdate()`
 
 ### HTTP Requests
 
