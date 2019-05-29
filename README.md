@@ -240,6 +240,17 @@
         - only re-renders these components if the props have changed
       - If required to check ALL props to determine if re-render is needed ...
         - In class components, could extend a `PureComponent`, do not implement `shouldComponentUpdate()`
+    - React and updating DOM
+      - Use of virtual vs actual DOM
+      - Updating or re-rendering actual DOM is a slow operation!
+    - Returning more than one element from a `render()`
+      - Wrap elements in `<div>`
+      - Can wrap jsx elements in an array `[]`
+        - Need to assign `key` value to each element
+      - Use a wrapping component (higher order component) that does not render any HTML
+        - Functional component that returns `props.children`
+      - In react 16.x, there are `<React.Fragment>`
+    - Higher order components
 
 ### HTTP Requests
 

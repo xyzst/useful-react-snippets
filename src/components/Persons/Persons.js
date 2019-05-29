@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import Person from "./Person/Person";
 
 class Persons extends Component {
-  static getDerivedStateFromProps(props, state) {
-    console.log(`[Persons.js] getDerivedStateFromProps ...`);
-    return state;
-  }
+  //   static getDerivedStateFromProps(props, state) {
+  //     console.log(`[Persons.js] getDerivedStateFromProps ...`);
+  //     return state;
+  //   }
 
   //   componentWillReceiveProps(props) { // Removed/unsupposed in newer React versions!
   //     console.log(`[Persons.js] componentWillReceiveProps ...`);
