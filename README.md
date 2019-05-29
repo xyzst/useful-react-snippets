@@ -251,6 +251,8 @@
         - Functional component that returns `props.children`
       - In react 16.x, there are `<React.Fragment>`
     - Higher order components
+      - Convention: prefix with `With`
+      - In hocs, can add error handling, custom styling ..
 
 ### HTTP Requests
 

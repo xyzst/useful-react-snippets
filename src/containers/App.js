@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styles from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-import WithClass from "../hoc/WithClass";
+import withClass from "../hoc/withClass";
+import Auxillary from "../hoc/Auxillary";
 
 const App = props => {
   const [personsState, setPersonsState] = useState({
@@ -60,7 +61,7 @@ const App = props => {
   };
 
   return (
-    <WithClass classes={styles.App}>
+    <Auxillary>
       <Cockpit
         title={props.appTitle}
         personsLength={personsState.persons.length}
@@ -68,7 +69,7 @@ const App = props => {
         toggle={togglePersons}
       />
       {showPersons()}
-    </WithClass>
+    </Auxillary>
   );
   // return React.createElement(
   // "div",
@@ -77,4 +78,4 @@ const App = props => {
   // );
 };
 
-export default App;
+export default withClass(App, styles.App);
