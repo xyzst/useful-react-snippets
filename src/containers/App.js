@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
+import WithClass from "../hoc/WithClass";
 
 const App = props => {
   const [personsState, setPersonsState] = useState({
@@ -59,7 +60,7 @@ const App = props => {
   };
 
   return (
-    <div className={styles.App}>
+    <WithClass classes={styles.App}>
       <Cockpit
         title={props.appTitle}
         personsLength={personsState.persons.length}
@@ -67,7 +68,7 @@ const App = props => {
         toggle={togglePersons}
       />
       {showPersons()}
-    </div>
+    </WithClass>
   );
   // return React.createElement(
   // "div",
