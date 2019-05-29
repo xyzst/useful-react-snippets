@@ -232,6 +232,9 @@
     - Clean up work methods
       - Can use `componenetWillUnmount()`
       - In useEffect(), in the first argument you can return a function which will run BEFORE the main useEffect but AFTER the first render cycle
+    - Optimizing rendering
+      - Can see what is re-rendered in chrome
+        - Chrome Tools > dot menu > More tools > Rendering > Paint flashing
 
 ### HTTP Requests
 
