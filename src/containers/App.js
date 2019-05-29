@@ -62,7 +62,7 @@ const App = props => {
     <div className={styles.App}>
       <Cockpit
         title={props.appTitle}
-        persons={personsState.persons}
+        personsLength={personsState.persons.length}
         toggled={toggleState}
         toggle={togglePersons}
       />

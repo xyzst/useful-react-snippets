@@ -230,11 +230,14 @@
         - array contains properties to watch for changes
         - will run by default for 1 time, but subsequent renders (without changes to variables defined in []) will not execute useEffect!
     - Clean up work methods
-      - Can use `componenetWillUnmount()`
+      - Can use `componentWillUnmount()`
       - In useEffect(), in the first argument you can return a function which will run BEFORE the main useEffect but AFTER the first render cycle
     - Optimizing rendering
+      - `shouldComponentUpdate()`
       - Can see what is re-rendered in chrome
         - Chrome Tools > dot menu > More tools > Rendering > Paint flashing
+      - To optimize function components, wrap in `React.memo(...)` when exporting
+        - only re-renders these components if the props have changed
 
 ### HTTP Requests
 
