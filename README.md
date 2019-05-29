@@ -253,6 +253,8 @@
     - Higher order components
       - Convention: prefix with `With`
       - In hocs, can add error handling, custom styling ..
+    - Passing Unknown Props
+      - In higher order component, use `{...props}` when passing wrapped component
 
 ### HTTP Requests
 
