@@ -255,6 +255,9 @@
       - In hocs, can add error handling, custom styling ..
     - Passing Unknown Props
       - In higher order component, use `{...props}` when passing wrapped component
+    - Optimal way to update state when depending on old state
+      - `setState()` has another argument which holds the old state
+        - eg `setState((prev, props) => { return { someVariable: prev.someVariable + 1 }}`
 
 ### HTTP Requests
 
