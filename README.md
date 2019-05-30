@@ -279,6 +279,11 @@
         - In components where these variables will be referenced, wrap component in `<Context.Consumer>`
           - between these tags: `{ (context) => <p>context.blah</p> }`
           - The consumer function executes this function
+        - In React 16.x, allows the use of context api outside of render function and in functional components as well
+          - classes: declare `static contextType = ContextComponentYouCreated` in class
+            - to access, use `this.context.variableWithinContextComponentYouCreated`
+            - much simpler syntax! easier to read!
+          - functional: use `useContext` hook!
 
 ### HTTP Requests
 

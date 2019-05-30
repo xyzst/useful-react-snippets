@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import styled from "styled-components";
 import styles from "./Cockpit.css";
 import AuthContext from "../../context/auth-context";
@@ -6,6 +6,8 @@ import AuthContext from "../../context/auth-context";
 const Cockpit = props => {
   // const toggleBtnRef = React.createRef(); // DOES NOT WORK IN FUNC COMPONENTS
   const toggleBtnRef = useRef(null);
+  const authContext = useContext(AuthContext);
+  console.log(authContext.authenticated);
 
   const Button = styled.button`
     background: ${props.toggled.showPersons ? "red" : "green"};
@@ -52,9 +54,7 @@ const Cockpit = props => {
       <Button ref={toggleBtnRef} onClick={props.toggle}>
         ~ Hide/Show Person(s) ~
       </Button>
-      <AuthContext.Consumer>
-        {context => <Button onClick={context.login}>Log in</Button>}
-      </AuthContext.Consumer>
+      <Button onClick={authContext.login}>Log in</Button>
     </div>
   );
 };

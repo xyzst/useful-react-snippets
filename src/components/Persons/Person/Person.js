@@ -10,8 +10,11 @@ class Person extends Component {
     this.inputElementRef = React.createRef(); // Available since React 13.x - refers to any reference object, more modern approach
   }
 
+  static contextType = AuthContext;
+
   componentDidMount() {
     this.inputElementRef.current.focus();
+    console.log(this.context.authenticated);
     // this.inputElement.focus();
     // document.querySelector("input").focus(); NOT OPTIMAL! USE REFS INSTEAD
   }
@@ -19,11 +22,11 @@ class Person extends Component {
     console.log(`[Person.js] rendering ...`);
     return (
       <PersonDiv>
-        <AuthContext.Consumer>
-          {context =>
-            context.authenticated ? <p>Authenticated</p> : <p>Please log in!</p>
-          }
-        </AuthContext.Consumer>
+        {this.context.authenticated ? (
+          <p>Authenticated</p>
+        ) : (
+          <p>Please log in!</p>
+        )}
         <p onClick={this.props.click}>
           I am a person and my name is {this.props.name}. I am {this.props.age}{" "}
           years old
