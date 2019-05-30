@@ -21,6 +21,10 @@ const App = props => {
     showPersons: false
   });
 
+  const [toggleAuthState, setAuthState] = useState({
+    authenticated: false
+  });
+
   const nameChangeHandler = (event, id) => {
     // given index (id), find matching id in personsState.persons array
     const personIndex = personsState.persons.findIndex(p => {
@@ -55,9 +59,14 @@ const App = props => {
           persons={personsState.persons}
           clicked={deletePersonHandler}
           changed={nameChangeHandler}
+          isAuthenticated={toggleAuthState.authenticated}
         />
       </div>
     ) : null;
+  };
+
+  const loginHandler = () => {
+    setAuthState({ authenticated: true });
   };
 
   return (
@@ -67,6 +76,7 @@ const App = props => {
         personsLength={personsState.persons.length}
         toggled={toggleState}
         toggle={togglePersons}
+        login={loginHandler}
       />
       {showPersons()}
     </Auxillary>
