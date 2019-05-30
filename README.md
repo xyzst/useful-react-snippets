@@ -258,6 +258,9 @@
     - Optimal way to update state when depending on old state
       - `setState()` can accept a callback function with 2 arguments (previous, props)
         - eg `setState((prev, props) => { return { someVariable: prev.someVariable + 1 }}`
+    - PropTypes
+      - Improve way with receiving props
+      - `import PropTypes from 'prop-types'`
 
 ### HTTP Requests
 
