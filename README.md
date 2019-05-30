@@ -261,6 +261,11 @@
     - PropTypes
       - Improve way with receiving props
       - `import PropTypes from 'prop-types'`
+    - Using Refs
+      - classes: Can use React.createRef() in constructor, use ref keyword in component and reference the element in the componentDidMount() lifecycle hook (see Person.js)
+      - classes: In referenced component, use the `ref` keyword and use an anonymous function to create an element in the class referring to the component element `<Component ref={(el) => this.compRef = el}>`
+        - Then use the componentDidMount() method and call the desired function(s) to apply
+      - functional components: Create ref with `useRef(<some_initial_state)`, add ref keyword to component, then call `someRef.current.someFunction` in a `useEffect()` hook
 
 ### HTTP Requests
 

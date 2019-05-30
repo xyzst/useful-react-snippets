@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import styles from "./Cockpit.css";
 
 const Cockpit = props => {
+  // const toggleBtnRef = React.createRef(); // DOES NOT WORK IN FUNC COMPONENTS
+  const toggleBtnRef = useRef(null);
+
   const Button = styled.button`
     background: ${props.toggled.showPersons ? "red" : "green"};
     font: inherit;
@@ -17,6 +20,7 @@ const Cockpit = props => {
   `;
 
   useEffect(() => {
+    toggleBtnRef.current.click();
     console.log(`[Cockpit.js] useEffect ...`);
     const timer = setTimeout(() => {
       alert("Saved data to cloud");
@@ -44,7 +48,9 @@ const Cockpit = props => {
     <div>
       <h1>{props.title}</h1>
       <p className={dynamicClasses()}>created by Darren Rambaud</p>
-      <Button onClick={props.toggle}>~ Hide/Show Person(s) ~</Button>
+      <Button ref={toggleBtnRef} onClick={props.toggle}>
+        ~ Hide/Show Person(s) ~
+      </Button>
     </div>
   );
 };
