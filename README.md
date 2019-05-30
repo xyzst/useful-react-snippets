@@ -300,3 +300,11 @@
 ### Deployment
 
 ### Miscellaneous
+
+### References
+
+- https://reactjs.org/docs/hooks-effect.html
+- https://reactjs.org/docs/state-and-lifecycle.html
+- https://reactjs.org/docs/typechecking-with-proptypes.html
+- https://reactjs.org/docs/higher-order-components.html
+- https://reactjs.org/docs/refs-and-the-dom.html
