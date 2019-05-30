@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import AuthContext from "../../../context/auth-context";
 import "./Person.css";
 
 class Person extends Component {
@@ -18,7 +19,11 @@ class Person extends Component {
     console.log(`[Person.js] rendering ...`);
     return (
       <PersonDiv>
-        {this.props.isAuth ? <p>Authenticated</p> : <p>Please log in!</p>}
+        <AuthContext.Consumer>
+          {context =>
+            context.authenticated ? <p>Authenticated</p> : <p>Please log in!</p>
+          }
+        </AuthContext.Consumer>
         <p onClick={this.props.click}>
           I am a person and my name is {this.props.name}. I am {this.props.age}{" "}
           years old

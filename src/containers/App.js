@@ -4,6 +4,7 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from "../hoc/withClass";
 import Auxillary from "../hoc/Auxillary";
+import AuthContext from "../context/auth-context";
 
 const App = props => {
   const [personsState, setPersonsState] = useState({
@@ -71,14 +72,20 @@ const App = props => {
 
   return (
     <Auxillary>
-      <Cockpit
-        title={props.appTitle}
-        personsLength={personsState.persons.length}
-        toggled={toggleState}
-        toggle={togglePersons}
-        login={loginHandler}
-      />
-      {showPersons()}
+      <AuthContext.Provider
+        value={{
+          authenticated: toggleAuthState.authenticated,
+          login: loginHandler
+        }}
+      >
+        <Cockpit
+          title={props.appTitle}
+          personsLength={personsState.persons.length}
+          toggled={toggleState}
+          toggle={togglePersons}
+        />
+        {showPersons()}
+      </AuthContext.Provider>
     </Auxillary>
   );
   // return React.createElement(

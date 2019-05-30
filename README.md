@@ -269,6 +269,16 @@
     - Understanding prop chain problems
       - Passing props down multiple levels and only forwarding to components that need it
       - Makes components less reusable
+      - CAN USE CONTEXT API TO AVOID PROP CHAINING!
+        - Allows for passing of state to the component(s) that need it
+        - `React.createContext(anyValueHere)`
+        - Create new file and export variable with React.createContext({someVariable: "iniState"})
+          - eg, `const Context = React.createContext({blah: "hello"}); export default Context;`
+          - Object is optional, however helps with code completion in vscode
+        - In components you want to access these variables, wrap in `<Context.Provider value={{blah: someStringOrOtherVariableOrFunction}}>`
+        - In components where these variables will be referenced, wrap component in `<Context.Consumer>`
+          - between these tags: `{ (context) => <p>context.blah</p> }`
+          - The consumer function executes this function
 
 ### HTTP Requests
 

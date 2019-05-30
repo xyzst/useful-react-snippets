@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import styles from "./Cockpit.css";
+import AuthContext from "../../context/auth-context";
 
 const Cockpit = props => {
   // const toggleBtnRef = React.createRef(); // DOES NOT WORK IN FUNC COMPONENTS
@@ -51,7 +52,9 @@ const Cockpit = props => {
       <Button ref={toggleBtnRef} onClick={props.toggle}>
         ~ Hide/Show Person(s) ~
       </Button>
-      <Button onClick={props.login}>Log in</Button>
+      <AuthContext.Consumer>
+        {context => <Button onClick={context.login}>Log in</Button>}
+      </AuthContext.Consumer>
     </div>
   );
 };
