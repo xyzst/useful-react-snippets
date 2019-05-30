@@ -256,7 +256,7 @@
     - Passing Unknown Props
       - In higher order component, use `{...props}` when passing wrapped component
     - Optimal way to update state when depending on old state
-      - `setState()` has another argument which holds the old state
+      - `setState()` can accept a callback function with 2 arguments (previous, props)
         - eg `setState((prev, props) => { return { someVariable: prev.someVariable + 1 }}`
 
 ### HTTP Requests
