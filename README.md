@@ -266,7 +266,7 @@
       - classes: In referenced component, use the `ref` keyword and use an anonymous function to create an element in the class referring to the component element `<Component ref={(el) => this.compRef = el}>`
         - Then use the componentDidMount() method and call the desired function(s) to apply
       - functional components: Create ref with `useRef(<some_initial_state)`, add ref keyword to component, then call `someRef.current.someFunction` in a `useEffect()` hook
-    - Understanding prop chain problems
+    - Understanding prop chaining problems
       - Passing props down multiple levels and only forwarding to components that need it
       - Makes components less reusable
       - CAN USE CONTEXT API TO AVOID PROP CHAINING!
